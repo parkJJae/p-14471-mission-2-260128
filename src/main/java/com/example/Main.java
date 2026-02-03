@@ -9,9 +9,8 @@ public class Main {
 
         System.out.println(" == 명언 앱 == ");
         Scanner scanner = new Scanner(System.in);
-        List<WiseSaying> wiseSayings  = new ArrayList<>();
+        List<WiseSaying> wiseSayings = new ArrayList<>();
         int lastId = 0;
-
 
         while (true) {
             System.out.print("명령) ");
@@ -21,7 +20,7 @@ public class Main {
                 WiseSaying wiseSaying = new WiseSaying();
                 wiseSaying.id = ++lastId;
                 System.out.print("명언 : ");
-                wiseSaying.wiseSaying = scanner.nextLine();
+                wiseSaying.content = scanner.nextLine();
                 System.out.print("작가 : ");
                 wiseSaying.author = scanner.nextLine();
                 wiseSayings.add(wiseSaying);
@@ -31,8 +30,8 @@ public class Main {
             else if(command.equals("목록")){
                 System.out.println("번호  /  작가  /  명언");
                 System.out.println("----------------------");
-                for (WiseSaying wiseSaying : wiseSayings) {
-                    System.out.println(wiseSaying.id + " / " + wiseSaying.author + " / " + wiseSaying.wiseSaying);
+                for(WiseSaying wiseSaying : wiseSayings) {
+                    System.out.println(wiseSaying.id + " / " + wiseSaying.author + " / " + wiseSaying.content);
                 }
             }
 
