@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -7,19 +9,31 @@ public class Main {
 
         System.out.println(" == 명언 앱 == ");
         Scanner scanner = new Scanner(System.in);
-        int number = 0;
+        List<WiseSaying> wiseSayings  = new ArrayList<>();
+        int lastId = 0;
+
 
         while (true) {
             System.out.print("명령) ");
             String command = scanner.nextLine();
 
             if (command.equals("등록")) {
+                WiseSaying wiseSaying = new WiseSaying();
+                wiseSaying.id = ++lastId;
                 System.out.print("명언 : ");
-                String wiseSaying = scanner.nextLine();
+                wiseSaying.wiseSaying = scanner.nextLine();
                 System.out.print("작가 : ");
-                String author = scanner.nextLine();
-                ++number;
-                System.out.println(number + "번 명언이 등록되었습니다.");
+                wiseSaying.author = scanner.nextLine();
+                wiseSayings.add(wiseSaying);
+                System.out.println(wiseSaying.id + "번 명언이 등록되었습니다.");
+            }
+
+            else if(command.equals("목록")){
+                System.out.println("번호  /  작가  /  명언");
+                System.out.println("----------------------");
+                for (WiseSaying wiseSaying : wiseSayings) {
+                    System.out.println(wiseSaying.id + " / " + wiseSaying.author + " / " + wiseSaying.wiseSaying);
+                }
             }
 
             if (command.equals("종료")) {
