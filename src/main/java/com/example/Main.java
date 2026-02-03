@@ -35,8 +35,22 @@ public class Main {
                 }
             }
 
-            if (command.equals("종료")) {
+            else if (command.equals("종료")) {
                 break;
+            }
+
+            else if (command.startsWith("삭제?id=")){
+                String[] parts = command.split("="); // =을 만나면 짤라라. = 을 기준으로 짤라서 parts[0] -> 삭제?id , parts[1] -> 문자열
+                int targetId = Integer.parseInt(parts[1]); // 문자열이기 때문에 Int로 바꿔줘야함
+                for (int i = 0; i < wiseSayings.size(); i++) {
+                    WiseSaying ws = wiseSayings.get(i);
+                    if(ws.id == targetId){
+                        wiseSayings.remove(i);
+                        System.out.println(targetId + "번 명언이 삭제되었습니다.");
+                        break;
+                    }
+
+                }
             }
         }
 
