@@ -8,7 +8,7 @@ public class Main {
         System.out.println(" == 명언 앱 == ");
         Scanner scanner = new Scanner(System.in);
         System.out.print("명령)");
-        scanner.nextLine();
+        String command = scanner.nextLine();
 
     }
 }+
