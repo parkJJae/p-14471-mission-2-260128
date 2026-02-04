@@ -56,6 +56,32 @@ public class Main {
                 if(!found){
                     System.out.println(targetId + "번 명언은 존재하지 않습니다.");
                 }
+        }
+            else if (command.startsWith("수정?id=")){
+                String[] parts = command.split("=");
+                int targetId = Integer.parseInt(parts[1]);
+                boolean found = false;
+                for (int i = 0; i < wiseSayings.size(); i++) {
+                    WiseSaying ws = wiseSayings.get(i);
+                    if(ws.id == targetId){
+                        System.out.println("멍언(기존)" + ws.content);
+                        System.out.print("명언 : ");
+                        ws.content = scanner.nextLine();
+
+                        System.out.println("작가(기존)" + ws.author);
+                        System.out.print("작가 : ");
+                        ws.author = scanner.nextLine();
+
+                        found = true;
+                        break;
+
+                    }
+                }
+
+
+                if(!found){
+                    System.out.println(targetId + "번 명언은 존재하지 않습니다.");
+                }
             }
         }
 
